@@ -10,6 +10,8 @@ import React from "react";
 import tw from "tailwind-react-native-classnames";
 import { Icon } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
+import { selectOrigin } from "../slices/navSlice";
+import { useSelector } from "react-redux";
 const data = [
   {
     id: "1",
@@ -26,6 +28,8 @@ const data = [
 ];
 const NavOptions = () => {
   const navigation = useNavigation();
+  const origin = useSelector(selectOrigin);
+
   return (
     <FlatList
       data={data}
@@ -37,8 +41,9 @@ const NavOptions = () => {
           onPress={() => {
             navigation.navigate(item.screen);
           }}
+          disabled={!origin}
         >
-          <View>
+          <View style={tw`${!origin && "opacity-20"}`}>
             <Image
               style={{ width: 120, height: 120, resizeMode: "contain" }}
               source={{ uri: item.image }}
