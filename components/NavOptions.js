@@ -49,13 +49,7 @@ const NavOptions = () => {
               source={{ uri: item.image }}
             />
             <Text style={tw` mb-4 text-lg font-semibold`}>{item.title}</Text>
-            <Icon
-              reverse
-              type="antdesign"
-              name="arrowright"
-              color="black"
-              style={tw``}
-            />
+            <Icon reverse type="antdesign" name="arrowright" color="black" />
           </View>
         </TouchableOpacity>
       )}
